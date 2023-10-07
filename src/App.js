@@ -11,11 +11,23 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Loginpage from "./Login/Loginpage";
+import Cart from "./Cart/Cart";
+
+import { BrowserRouter, Route, Routes, useNavigate} from 'react-router-dom'
 
 function App(props) {
+
+
   return (
+    
     <div>
-      {!props.openDialog && (
+      
+        
+      
+      
+     
+
+      {!props.openDialog && !props.OpenCartDrawer && (
         <Fragment>
           <Topbar />
 
@@ -24,15 +36,19 @@ function App(props) {
       )}
       {props.openDialog && (
         <Dialog
+        
           open={props.open}
           onClose={props.handleClose}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogContent>
+          <DialogContent style={{width:'500px',backgroundColor:"#ebf6f7"}}>
             <Loginpage />
           </DialogContent>
         </Dialog>
+      )}
+      {props.OpenCartDrawer &&(
+         <Cart></Cart>
       )}
     </div>
   );

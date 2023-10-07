@@ -22,13 +22,16 @@ import { styled, alpha } from "@mui/material/styles";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import App from "../App";
+import Cart from "../Cart/Cart";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const options = ["Option 1", "Option 2", "Option 3"];
   const [value, setValue] = useState(0);
   const [openDialog, setopenDialog] = useState(false);
+  const [OpenCartDrawer,setOpenCartDrawer] = useState(false);
   const [open, setOpen] = useState(false);
+  const [opencart, setopencart] = useState(false);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -39,10 +42,17 @@ const Header = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  const handleclosecart = () => {
+    setopencart(false);
+  };
+  const openCart = () =>{
+    setOpenCartDrawer(true);
+    setopencart(true);
+  }
   return (
     <div>
       <Card position="static">
-        <CardContent>
+        <CardContent style={{backgroundColor:"#ebf6f7"}}>
           <Grid container>
             <Grid item xs={12} sm={12} md={12} lg={1}></Grid>
             <Grid item xs={12} sm={12} md={12} lg={10}>
@@ -78,7 +88,7 @@ const Header = () => {
                     )}
                   />
                   <div style={{paddingTop:"60px",paddingRight:'300px'}}>
-                  <Box sx={{ width: "100%", bgcolor: "background.paper" }}>
+                  <Box sx={{ width: "100%", bgcolor: "#ebf6f7" }}>
                     <Tabs value={value} onChange={handleChange} centered>
                       <Tab label="Home" />
                       <Tab label="Products" />
@@ -95,7 +105,7 @@ const Header = () => {
                       <PersonIcon />
                     </Badge>
                   </IconButton>
-                  <IconButton size="large">
+                  <IconButton size="large" onClick={openCart}>
                     <Badge>
                       <AddShoppingCartIcon />
                     </Badge>
@@ -108,7 +118,10 @@ const Header = () => {
         </CardContent>
       </Card>
       {openDialog && (
-        <App open={open} handleClose={handleClose} openDialog = {true}/>
+        <App open={open} handleClose={handleClose} openDialog = {true} OpenCartDrawer = {true}/>
+      )}
+      {OpenCartDrawer &&(
+        <Cart open = {opencart} handleClose = {handleclosecart} />
       )}
     </div>
   );
