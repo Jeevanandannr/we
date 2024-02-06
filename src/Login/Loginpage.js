@@ -25,11 +25,13 @@ const Loginpage = () => {
   };
 
   return (
-    <div>
-      {!OpenRegister && !OpenReset &&(
+    <div >
+      {!OpenRegister && !OpenReset && (
         <Grid container>
-          <Grid item xs={12} sm={12} md={12} lg={1}></Grid>
-          <Grid item xs={12} sm={12} md={12} lg={10}>
+          <Grid item xs={12} sm={12} md={12} lg={4}></Grid>
+          <Grid item xs={12} sm={12} md={12} lg={4} style=
+          {{ paddingTop:"50px",
+          }}>
             <div
               style={{
                 display: "flex",
@@ -49,31 +51,38 @@ const Loginpage = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 paddingTop: "10px",
+                
               }}
             >
               <Typography display="block" gutterBottom>
                 Welcome to Weaver's Lungi's
               </Typography>
             </div>
-            <div style={{ paddingTop: "40px" }}>
+            <div style={{ paddingTop: "20px" }}>
               <TextField
                 fullWidth
                 id="outlined-basic"
                 label="Email or Phone Number"
                 variant="outlined"
                 placeholder="example@gmail.com"
+                InputProps={{
+                  style: {borderRadius:"20px"}, // Change label color here
+                }}
               />
             </div>
-            <div style={{ paddingTop: "40px" }}>
+            <div style={{ paddingTop: "20px" }}>
               <TextField
                 fullWidth
                 id="outlined-basic"
                 label="Password"
                 variant="outlined"
                 placeholder="********"
+                InputProps={{
+                  style: {borderRadius:"20px"}, // Change label color here
+                }}
               />
             </div>
-            <div style={{ paddingTop: "40px" }}>
+            <div style={{ paddingTop: "20px" }}>
               <Button fullWidth variant="contained" color="error">
                 Login
               </Button>
@@ -83,7 +92,7 @@ const Loginpage = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                paddingTop: "40px",
+                paddingTop: "20px",
               }}
             >
               <Divider>
@@ -95,7 +104,7 @@ const Loginpage = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                paddingTop: "40px",
+                paddingTop: "20px",
               }}
             >
               <Typography variant="body1" display="block" fontSize="14px">
@@ -137,20 +146,24 @@ const Loginpage = () => {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={12} sm={12} md={12} lg={1}></Grid>
+          <Grid item xs={12} sm={12} md={12} lg={4}></Grid>
         </Grid>
       )}
 
       {/* Register Page */}
       {OpenRegister && (
         <Grid container>
-          <Grid item xs={12} sm={12} md={12} lg={1}></Grid>
-          <Grid item xs={12} sm={12} md={12} lg={10}>
+          <Grid item xs={12} sm={12} md={12} lg={4}></Grid>
+          <Grid item xs={12} sm={12} md={12} lg={4} 
+          style=
+          {{ paddingTop:"50px" 
+          }}>
             <div
               style={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+
               }}
             >
               <img
@@ -171,43 +184,55 @@ const Loginpage = () => {
                 Create Your Account
               </Typography>
             </div>
-            <div style={{ paddingTop: "40px" }}>
+            <div style={{ paddingTop: "20px" }}>
               <TextField
                 fullWidth
                 id="outlined-basic"
                 label="Full Name"
                 variant="outlined"
                 placeholder="Full Name"
+                InputProps={{
+                  style: {borderRadius:"20px"}, // Change label color here
+                }}
               />
             </div>
-            <div style={{ paddingTop: "40px" }}>
+            <div style={{ paddingTop: "20px" }}>
               <TextField
                 fullWidth
                 id="outlined-basic"
                 label="Email or Phone Number"
                 variant="outlined"
                 placeholder="example@gmail.com"
+                InputProps={{
+                  style: {borderRadius:"20px"}, // Change label color here
+                }}
               />
             </div>
-            <div style={{ paddingTop: "40px" }}>
+            <div style={{ paddingTop: "20px" }}>
               <TextField
                 fullWidth
                 id="outlined-basic"
                 label="Password"
                 variant="outlined"
                 placeholder="********"
+                InputProps={{
+                  style: {borderRadius:"20px"}, // Change label color here
+                }}
               />
             </div>
-            <div style={{ paddingTop: "40px" }}>
+            <div style={{ paddingTop: "20px" }}>
               <TextField
                 fullWidth
                 id="outlined-basic"
                 label="Retype Password"
                 variant="outlined"
                 placeholder="********"
+                InputProps={{
+                  style: {borderRadius:"20px"}, // Change label color here
+                }}
               />
             </div>
-            <div style={{ paddingTop: "40px" }}>
+            <div style={{ paddingTop: "20px" }}>
               <Button fullWidth variant="contained" color="error">
                 Create Account
               </Button>
@@ -217,7 +242,7 @@ const Loginpage = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                paddingTop: "40px",
+                paddingTop: "20px",
               }}
             >
               <Divider>
@@ -229,7 +254,7 @@ const Loginpage = () => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                paddingTop: "40px",
+                paddingTop: "20px",
               }}
             >
               <Typography variant="body1" display="block" fontSize="14px">
@@ -246,13 +271,15 @@ const Loginpage = () => {
               </Typography>
             </div>
           </Grid>
-          <Grid item xs={12} sm={12} md={12} lg={1}></Grid>
+          <Grid item xs={12} sm={12} md={12} lg={4}></Grid>
         </Grid>
       )}
       {OpenReset && (
         <Grid container>
-          <Grid item xs={12} sm={12} md={12} lg={1}></Grid>
-          <Grid item xs={12} sm={12} md={12} lg={10}>
+          <Grid item xs={12} sm={12} md={12} lg={4}></Grid>
+          <Grid item xs={12} sm={12} md={12} lg={4} style=
+          {{ paddingTop:"50px" 
+          }}>
             <div
               style={{
                 display: "flex",
@@ -273,6 +300,9 @@ const Loginpage = () => {
                 label="Email or Phone Number"
                 variant="outlined"
                 placeholder="example@gmail.com"
+                InputProps={{
+                  style: {borderRadius:"20px"}, // Change label color here
+                }}
               />
             </div>
 
@@ -304,7 +334,7 @@ const Loginpage = () => {
               </Typography>
             </div>
           </Grid>
-          <Grid item xs={12} sm={12} md={12} lg={1}></Grid>
+          <Grid item xs={12} sm={12} md={12} lg={4}></Grid>
         </Grid>
       )}
     </div>

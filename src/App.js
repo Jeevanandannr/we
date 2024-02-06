@@ -20,36 +20,8 @@ function App(props) {
 
   return (
     
-    <div>
-      
-        
-      
-      
-     
-
-      {!props.openDialog && !props.OpenCartDrawer && (
-        <Fragment>
-          <Topbar />
-
-          <Header />
-        </Fragment>
-      )}
-      {props.openDialog && (
-        <Dialog
-        
-          open={props.open}
-          onClose={props.handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
-          <DialogContent style={{width:'500px',backgroundColor:"#ebf6f7"}}>
-            <Loginpage />
-          </DialogContent>
-        </Dialog>
-      )}
-      {props.OpenCartDrawer &&(
-         <Cart></Cart>
-      )}
+    <div className="app-container">
+     <Loginpage />
     </div>
   );
 }
