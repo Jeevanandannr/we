@@ -69,7 +69,7 @@ const Loginpage = () => {
           <Grid item xs={12} sm={12} md={12} lg={4}></Grid>
           <Grid item xs={12} sm={12} md={12} lg={4} style=
             {{
-              paddingTop: "40px",
+              paddingTop: "50px",
             }}>
             <div
               style={{
