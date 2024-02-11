@@ -12,6 +12,10 @@ import Button from "@mui/material/Button";
 const Loginpage = () => {
   const [OpenRegister, setOpenRegister] = useState(false);
   const [OpenReset, setOpenReset] = useState(false);
+  const [Name, setName] = useState("");
+  const [Email, setEmail] = useState("");
+  const [Password, setPassword] = useState("");
+  const [RePassword, setRePassword] = useState("");
   const OpenRegisterDialog = () => {
     setOpenRegister(true);
     setOpenReset(false);
@@ -23,6 +27,40 @@ const Loginpage = () => {
   const OpenResetDialog = () => {
     setOpenReset(true);
   };
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleRePasswordChange = (event) => {
+    setRePassword(event.target.value);
+  };
+
+  async function RegisterUser() {
+    const response = await fetch("http://localhost:1337/api/register", {
+      method:'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        Name,
+        Email,
+        Password,
+        RePassword
+      }),
+
+    })
+
+    const data = await response.json()
+    console.log(data)
+  }
 
   return (
     <div >
@@ -30,8 +68,9 @@ const Loginpage = () => {
         <Grid container>
           <Grid item xs={12} sm={12} md={12} lg={4}></Grid>
           <Grid item xs={12} sm={12} md={12} lg={4} style=
-          {{ paddingTop:"50px",
-          }}>
+            {{
+              paddingTop: "50px",
+            }}>
             <div
               style={{
                 display: "flex",
@@ -51,7 +90,7 @@ const Loginpage = () => {
                 justifyContent: "center",
                 alignItems: "center",
                 paddingTop: "10px",
-                
+
               }}
             >
               <Typography display="block" gutterBottom>
@@ -66,7 +105,7 @@ const Loginpage = () => {
                 variant="outlined"
                 placeholder="example@gmail.com"
                 InputProps={{
-                  style: {borderRadius:"20px"}, // Change label color here
+                  style: { borderRadius: "20px" }, // Change label color here
                 }}
               />
             </div>
@@ -78,7 +117,7 @@ const Loginpage = () => {
                 variant="outlined"
                 placeholder="********"
                 InputProps={{
-                  style: {borderRadius:"20px"}, // Change label color here
+                  style: { borderRadius: "20px" }, // Change label color here
                 }}
               />
             </div>
@@ -154,10 +193,11 @@ const Loginpage = () => {
       {OpenRegister && (
         <Grid container>
           <Grid item xs={12} sm={12} md={12} lg={4}></Grid>
-          <Grid item xs={12} sm={12} md={12} lg={4} 
-          style=
-          {{ paddingTop:"50px" 
-          }}>
+          <Grid item xs={12} sm={12} md={12} lg={4}
+            style=
+            {{
+              paddingTop: "50px"
+            }}>
             <div
               style={{
                 display: "flex",
@@ -191,8 +231,10 @@ const Loginpage = () => {
                 label="Full Name"
                 variant="outlined"
                 placeholder="Full Name"
+                value={Name}
+                onChange={handleNameChange}
                 InputProps={{
-                  style: {borderRadius:"20px"}, // Change label color here
+                  style: { borderRadius: "20px", color: "white" }, // Change label color here
                 }}
               />
             </div>
@@ -203,8 +245,10 @@ const Loginpage = () => {
                 label="Email or Phone Number"
                 variant="outlined"
                 placeholder="example@gmail.com"
+                value={Email}
+                onChange={handleEmailChange}
                 InputProps={{
-                  style: {borderRadius:"20px"}, // Change label color here
+                  style: { borderRadius: "20px", color: "white" }, // Change label color here
                 }}
               />
             </div>
@@ -215,8 +259,10 @@ const Loginpage = () => {
                 label="Password"
                 variant="outlined"
                 placeholder="********"
+                value={Password}
+                onChange={handlePasswordChange}
                 InputProps={{
-                  style: {borderRadius:"20px"}, // Change label color here
+                  style: { borderRadius: "20px", color: "white" }, // Change label color here
                 }}
               />
             </div>
@@ -227,13 +273,15 @@ const Loginpage = () => {
                 label="Retype Password"
                 variant="outlined"
                 placeholder="********"
+                value={RePassword}
+                onChange={handleRePasswordChange}
                 InputProps={{
-                  style: {borderRadius:"20px"}, // Change label color here
+                  style: { borderRadius: "20px", color: "white" }, // Change label color here
                 }}
               />
             </div>
             <div style={{ paddingTop: "20px" }}>
-              <Button fullWidth variant="contained" color="error">
+              <Button fullWidth variant="contained" color="error" onClick={RegisterUser}>
                 Create Account
               </Button>
             </div>
@@ -278,8 +326,9 @@ const Loginpage = () => {
         <Grid container>
           <Grid item xs={12} sm={12} md={12} lg={4}></Grid>
           <Grid item xs={12} sm={12} md={12} lg={4} style=
-          {{ paddingTop:"50px" 
-          }}>
+            {{
+              paddingTop: "50px"
+            }}>
             <div
               style={{
                 display: "flex",
@@ -301,7 +350,7 @@ const Loginpage = () => {
                 variant="outlined"
                 placeholder="example@gmail.com"
                 InputProps={{
-                  style: {borderRadius:"20px"}, // Change label color here
+                  style: { borderRadius: "20px" }, // Change label color here
                 }}
               />
             </div>
